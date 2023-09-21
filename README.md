@@ -40,4 +40,5 @@ Sistemos sudedamosios dalys:
 - Kliento pusė – bus realizuota naudojant Vue.js;
 - Serverio pusė – bus realizuota naudojant PHP Laravel;
 - Duomenų bazė – MySQL.
+
 Žemiau pavaizduota kuriamos sistemos architektūra pasitelkiant diegimo diagramą.
