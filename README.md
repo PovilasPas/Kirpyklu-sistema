@@ -10,6 +10,7 @@ Sistemos svečias galės:
 - Peržiūrėti pasirinktos kirpyklos informaciją;
 - Matyti pasirinkto kirpėjo daromas šukuosenas;
 - Prisiregistruoti prie sistemos.
+
 Kirpėjas galės:
 * Prisijungti prie sistemos;
 * Atsijungti nuo sistemos;
@@ -19,6 +20,7 @@ Kirpėjas galės:
 * Šalinti nebedaromas šukuosenas;
 * Šalinti paskyrą;
 * Atnaujinti paskyros informaciją.
+
 Kirpyklos vadovas galės:
 - Prisijungti prie sistemos;
 - Atsijungti nuo sistemos;
@@ -27,10 +29,12 @@ Kirpyklos vadovas galės:
 - Šalinti kirpyklas;
 - Patvirtinti, kad kirpėjas tikrai dirba vadovui priklausančioje kirpykloje;
 - Pašalinti kirpėjus dirbančius vadovui priklausančioje kirpykloje.
+
 Administratorius galės:
 * Prisijungti prie sistemos;
 * Atsijungti nuo sistemos;
 * Patvirtinti kirpyklos vadovų registracijas.
+
 ## 2. Sistemos architektūra
 Sistemos sudedamosios dalys:
 - Kliento pusė – bus realizuota naudojant Vue.js;
