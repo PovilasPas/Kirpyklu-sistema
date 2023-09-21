@@ -43,4 +43,4 @@ Sistemos sudedamosios dalys:
 
 Žemiau pavaizduota kuriamos sistemos architektūra pasitelkiant diegimo diagramą.
 
-![Kirpyklų sistemos diegimo diagrama](https://github.com/PovilasPas/Kirpyklu-sistema/blob/main/diegimo-diagrama.PNG)
+![Kirpyklų sistemos diegimo diagrama](https://github.com/PovilasPas/Kirpyklu-sistema/blob/main/diegimo-diagrama.PNG?raw=true)
