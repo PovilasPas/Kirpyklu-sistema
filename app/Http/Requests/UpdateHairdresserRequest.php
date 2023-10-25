@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ExistingSalon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class HairdresserRequest extends FormRequest
+class UpdateHairdresserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +26,8 @@ class HairdresserRequest extends FormRequest
     {
         return [
             'phoneNr' => ['required', 'string', 'regex:/^\+?[0-9]{7,15}$/'],
-            'isApproved' => ['required', 'boolean']
+            'isApproved' => ['required', 'boolean'],
+            'hairSalonId' => ['bail', 'required', 'integer', 'gte:1', new ExistingSalon()]
         ];
     }
 
@@ -40,7 +42,8 @@ class HairdresserRequest extends FormRequest
     {
         $this->merge([
             'phone_nr' => $this->phoneNr,
-            'is_approved' => $this->isApproved
+            'is_approved' => $this->isApproved,
+            'hair_salon_id' => $this->hairSalonId
         ]);
     }
 }

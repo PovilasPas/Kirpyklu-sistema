@@ -19,7 +19,8 @@ class HairSalonResource extends JsonResource
             'name' => $this->name,
             'cityId' => $this->city_id,
             'address' => $this->address,
-            'description' => $this->description
+            'description' => $this->description,
+            'managerId' => $this->manager_id
         ];
     }
 }

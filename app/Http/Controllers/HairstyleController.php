@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\HairSalon;
 use App\Models\Hairstyle;
 use App\Models\Hairdresser;
@@ -16,21 +17,21 @@ use App\Http\Requests\UpdateHairstyleRequest;
 
 class HairstyleController extends Controller
 {
-    public function index(HairSalon $salon, Hairdresser $hairdresser)
+    public function index(City $city, HairSalon $salon, Hairdresser $hairdresser)
     {
-        if($salon->id != $hairdresser->hair_salon_id) return response(['message' => 'Resource not found'],404);
+        if($city->id != $salon->city_id || $salon->id != $hairdresser->hair_salon_id) return response(['message' => 'Resource not found'],404);
         return response(HairstyleResource::collection($hairdresser->hairstyles),200);
     }
 
-    public function show(HairSalon $salon, Hairdresser $hairdresser, Hairstyle $hairstyle)
+    public function show(City $city, HairSalon $salon, Hairdresser $hairdresser, Hairstyle $hairstyle)
     {
-        if($salon->id != $hairdresser->hair_salon_id || $hairdresser->id != $hairstyle->hairdresser_id) return response(['message' => 'Resource not found'], 404); 
+        if($city->id != $salon->city_id || $salon->id != $hairdresser->hair_salon_id || $hairdresser->id != $hairstyle->hairdresser_id) return response(['message' => 'Resource not found'], 404); 
         return response(new HairstyleResource($hairstyle), 200);
     }
 
-    public function store(HairSalon $salon, Hairdresser $hairdresser, StoreHairstyleRequest $request)
+    public function store(City $city, HairSalon $salon, Hairdresser $hairdresser, StoreHairstyleRequest $request)
     {
-        if($salon->id != $hairdresser->hair_salon_id) return response(['message' => 'Resource not found'],404);
+        if($city->id != $salon->city_id || $salon->id != $hairdresser->hair_salon_id) return response(['message' => 'Resource not found'],404);
         $request->merge([
             'hairdresser_id' => $hairdresser->id
         ]);
@@ -44,9 +45,9 @@ class HairstyleController extends Controller
         return response(new HairstyleResource(Hairstyle::create($data)));
     }
 
-    public function update(HairSalon $salon, Hairdresser $hairdresser, Hairstyle $hairstyle, UpdateHairstyleRequest $request)
+    public function update(City $city, HairSalon $salon, Hairdresser $hairdresser, Hairstyle $hairstyle, UpdateHairstyleRequest $request)
     {
-        if($salon->id != $hairdresser->hair_salon_id || $hairdresser->id != $hairstyle->hairdresser_id) return response(['message' => 'Resource not found'], 404); 
+        if($city->id != $salon->city_id || $salon->id != $hairdresser->hair_salon_id || $hairdresser->id != $hairstyle->hairdresser_id) return response(['message' => 'Resource not found'], 404); 
         $data = $request->all();
         if(isset($data['image']) && $data['image'])
         {
@@ -59,9 +60,9 @@ class HairstyleController extends Controller
         return response(new HairstyleResource($hairstyle));
     }
 
-    public function delete(HairSalon $salon, Hairdresser $hairdresser, Hairstyle $hairstyle)
+    public function delete(City $city, HairSalon $salon, Hairdresser $hairdresser, Hairstyle $hairstyle)
     {
-        if($salon->id != $hairdresser->hair_salon_id || $hairdresser->id != $hairstyle->hairdresser_id) return response(['message' => 'Resource not found'], 404);
+        if($city->id != $salon->city_id || $salon->id != $hairdresser->hair_salon_id || $hairdresser->id != $hairstyle->hairdresser_id) return response(['message' => 'Resource not found'], 404);
         if(File::exists($hairstyle->image)) File::delete($hairstyle->image);
         $hairstyle->delete();
         return response('', 204);

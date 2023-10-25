@@ -14,11 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hairdressers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id')->unsigned();
+            $table->primary('id');
             $table->string('phone_nr');
             $table->boolean('is_approved');
             $table->integer('hair_salon_id')->unsigned();
             $table->foreign('hair_salon_id')->references('id')->on('hair_salons')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

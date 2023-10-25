@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('description');
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->integer('manager_id')->unsigned();
+            $table->foreign('manager_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

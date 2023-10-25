@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            MainSeeder::class,
-        ]);
+        // $this->call([
+        //     MainSeeder::class,
+        // ]);
         DB::table('statuses')->insert([
             'name' => 'manager'
         ]);

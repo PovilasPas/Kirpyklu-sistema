@@ -18,6 +18,7 @@ class HairSalon extends Model
         'name',
         'address',
         'description',
+        'manager_id',
         'city_id',
     ];
 

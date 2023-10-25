@@ -11,11 +11,17 @@ class Hairdresser extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+
     protected $fillable = [
         'id',
         'phone_nr',
         'is_approved',
         'hair_salon_id'
+    ];
+
+    protected $attributes = [
+        'is_approved' => 0
     ];
 
     public function hairSalon()
