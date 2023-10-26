@@ -31,4 +31,9 @@ class HairSalon extends Model
     {
         return $this->belongsTo(City::class, 'city_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'manager_id');
+    }
 }

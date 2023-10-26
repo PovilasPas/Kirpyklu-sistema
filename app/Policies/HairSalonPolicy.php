@@ -20,7 +20,7 @@ class HairSalonPolicy
     public function create(User $user)
     {
         return $user->status_id == 1 
-        ? Response::allow() : Response::deny('unauthorized');
+        ? Response::allow() : Response::deny('Unauthorized');
     }
 
     /**
@@ -34,7 +34,7 @@ class HairSalonPolicy
     {
         return $user->status_id == 1 
         && $user->id == $hairSalon->manager_id 
-        ? Response::allow() : Response::deny('unauthorized');
+        ? Response::allow() : Response::deny('Unauthorized');
     }
 
     /**
@@ -48,6 +48,6 @@ class HairSalonPolicy
     {
         return $user->status_id == 1 
         && $user->id == $hairSalon->manager_id 
-        ? Response::allow() : Response::deny('unauthorized');
+        ? Response::allow() : Response::deny('Unauthorized');
     }
 }

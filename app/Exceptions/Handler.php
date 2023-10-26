@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
             if($request->is('api/*'))
             {
                 return response([
-                    'message' => 'resource not found',
+                    'message' => 'Resource not found',
                 ], 404);
             }
         });

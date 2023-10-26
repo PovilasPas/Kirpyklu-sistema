@@ -33,4 +33,9 @@ class Hairdresser extends Model
     {
         return $this->hasMany(Hairstyle::class, 'hairdresser_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
 }

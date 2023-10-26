@@ -22,7 +22,7 @@ class HairstylePolicy
         $hairdresser = request()->route('hairdresser');
         return $user->status_id == 2 
         && $hairdresser->id == $user->id 
-        ? Response::allow() : Response::deny('unauthorized');
+        ? Response::allow() : Response::deny('Unauthorized');
     }
 
     /**
@@ -38,7 +38,7 @@ class HairstylePolicy
         return $user->status_id == 2 
         && $hairdresser->id == $user->id 
         && $hairstyle->hairdresser_id == $hairdresser->id
-        ? Response::allow() : Response::deny('unauthorized');
+        ? Response::allow() : Response::deny('Unauthorized');
     }
 
     /**
@@ -54,6 +54,6 @@ class HairstylePolicy
         return $user->status_id == 2 
         && $hairdresser->id == $user->id 
         && $hairstyle->hairdresser_id == $hairdresser->id 
-        ? Response::allow() : Response::deny('unauthorized');
+        ? Response::allow() : Response::deny('Unauthorized');
     }
 }

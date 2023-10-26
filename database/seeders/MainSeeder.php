@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\City;
+use App\Models\User;
 use App\Models\HairSalon;
 use App\Models\Hairstyle;
 use App\Models\Hairdresser;
+use Illuminate\Support\Arr;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -18,12 +20,17 @@ class MainSeeder extends Seeder
      */
     public function run()
     {
-        City::factory(10)->create()->each(function($city){
-            HairSalon::factory(rand(0,2))->create(['city_id' => $city->id])->each(function($HairSalon){
-                Hairdresser::factory(rand(1,4))->create(['hair_salon_id' => $HairSalon->id])->each(function($Hairdresser){
-                    Hairstyle::factory(rand(1,3))->create(['hairdresser_id' => $Hairdresser->id]);
-                });
-            });
+        $cities = City::factory()->count(10)->create();
+        $ids = Arr::pluck($cities, 'id');
+
+        User::factory(['status_id' => 1])->count(5)->create()->each(function($user) use($ids) {
+            $count = rand(1,3);
+            for($i = 0; $i < $count; $i++)
+            {
+                HairSalon::factory(['city_id' => $ids[rand(0,count($ids) - 1)], 'manager_id' => $user->id])->
+                has(Hairdresser::factory()->count(rand(1,3))->
+                has(Hairstyle::factory()->count(rand(1,3))))->create();
+            }
         });
     }
 }

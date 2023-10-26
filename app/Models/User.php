@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\HairSalon;
 use App\Models\Hairdresser;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -57,5 +58,15 @@ class User extends Authenticatable implements JWTSubject
         return [
             'role' => $this->status_id,
         ];
+    }
+
+    public function hairSalons()
+    {
+        return $this->hasMany(HairSalon::class, 'manager_id');
+    }
+
+    public function hairdresser()
+    {
+        return $this->hasOne(Hairdresser::class, 'id');
     }
 }

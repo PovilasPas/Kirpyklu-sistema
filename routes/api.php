@@ -26,7 +26,7 @@ Route::prefix('V1')->group(function()
     Route::post('/users/register', [UserController::class, 'store'])->middleware('valid.json');
     Route::post('/users/login', [UserController::class, 'authenticate'])->middleware('valid.json');
     Route::post('/users/logout', [UserController::class, 'logout'])->middleware('auth:api');
-    Route::post('/users/refresh', [UserController::class, 'refresh'])->middleware('auth:api');
+    Route::post('/users/refresh', [UserController::class, 'refresh']);
     Route::patch('/users/{user}', [UserController::class, 'update'])->middleware('auth:api', 'valid.json');
     Route::delete('/users/{user}', [UserController::class, 'delete'])->middleware('auth:api');
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\HairSalon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,6 +21,7 @@ class HairdresserFactory extends Factory
         $date = $this->faker->dateTimeThisDecade();
         $factory = \Faker\Factory::create('lt_LT');
         return [
+            'id' => User::factory(['status_id' => 2])->create()->id,
             'phone_nr' => str_replace([" ","(",")"],["","",""], $factory->phoneNumber()),
             'is_approved' => $this->faker->randomElement([0, 1]),
             'created_at' => $date,

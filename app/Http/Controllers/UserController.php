@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\AuthenticateUserRequest;
+use Illuminate\Auth\AuthenticationException;
 
 class UserController extends Controller
 {
@@ -26,8 +28,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
-        User::create($data);
-        return response(['message' => 'Successfully registered'], 201);
+        return response(new UserResource(User::create($data)), 201);
     }
 
     public function authenticate(AuthenticateUserRequest $request)
@@ -51,12 +52,21 @@ class UserController extends Controller
 
     public function refresh()
     {
-        return response([
-            'message' => 'Token successfully refreshed',
-            'access_token' => auth()->refresh(),
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-        ]);
+        try
+        {
+            return response([
+                'message' => 'Token successfully refreshed',
+                'access_token' => auth()->refresh(),
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 60,
+            ], 200);
+        }
+        catch(Exception $e)
+        {
+            return response([
+                'message' => 'Invalid refresh token'
+            ], 401);
+        }
     }
 
     public function update(User $user, UpdateUserRequest $request)

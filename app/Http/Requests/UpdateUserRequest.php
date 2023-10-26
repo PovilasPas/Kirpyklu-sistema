@@ -30,8 +30,7 @@ class UpdateUserRequest extends FormRequest
             'name' => ['sometimes','required', 'string', 'min:5', 'max:255', 'alpha'],
             'surname' => ['sometimes','required', 'string', 'min:5', 'max:255', 'alpha'],
             'email' => ['sometimes','required', 'string' ,'email', 'max:255', Rule::unique('users','email')],
-            'password' => ['sometimes','required', 'string' , Password::min(8)->mixedCase()->numbers()->symbols()],
-            'statusId' => ['sometimes','bail', 'required', 'integer', 'gte:1', new ExistingStatus() ],
+            'password' => ['sometimes','required', 'confirmed' ,'string' , Password::min(8)->mixedCase()->numbers()->symbols()],
         ];
     }
 

@@ -30,8 +30,7 @@ class StoreUserRequest extends FormRequest
             'name' => ['required', 'string', 'min:5', 'max:255', 'alpha'],
             'surname' => ['required', 'string', 'min:5', 'max:255', 'alpha'],
             'email' => ['required', 'string' ,'email', 'max:255', Rule::unique('users','email')],
-            'password' => ['required', 'string' , Password::min(8)->mixedCase()->numbers()->symbols()],
-            'passwordConfirmation' => ['required', 'same:password'],
+            'password' => ['required', 'confirmed', 'string' , Password::min(8)->mixedCase()->numbers()->symbols()],
             'statusId' => ['bail', 'required', 'integer', 'gte:1', new ExistingStatus() ]
         ];
     }

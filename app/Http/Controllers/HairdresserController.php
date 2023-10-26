@@ -53,12 +53,12 @@ class HairdresserController extends Controller
         {
             $data = $request->all();
             $newSalon = HairSalon::find($data['hair_salon_id']);
-            if($newSalon->manager_id != $payload['sub'] || $data['phone_nr'] != $hairdresser->phone_nr) throw new AccessDeniedHttpException('unauthorized');
+            if($newSalon->manager_id != $payload['sub'] || $data['phone_nr'] != $hairdresser->phone_nr) throw new AccessDeniedHttpException('Unauthorized');
         }
         else if($payload['role'] == 2)
         {
             $data = $request->all();
-            if($data['hait_salon_id'] != $hairdresser->hair_salon_id || $data['is_approved'] != $hairdresser->is_approved) throw new AccessDeniedHttpException('unauthorized');
+            if($data['hair_salon_id'] != $hairdresser->hair_salon_id || $data['is_approved'] != $hairdresser->is_approved) throw new AccessDeniedHttpException('Unauthorized');
         }
 
         $hairdresser->update($request->all());
