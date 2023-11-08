@@ -14,11 +14,6 @@ use Illuminate\Auth\AuthenticationException;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return response(UserResource::collection(User::all()), 200);
-    }
-
     public function show(User $user)
     {
         return response(new UserResource($user), 200);
@@ -56,7 +51,7 @@ class UserController extends Controller
         {
             return response([
                 'message' => 'Token successfully refreshed',
-                'access_token' => auth()->refresh(),
+                'access_token' => auth()->claims(['iss' => 'hair_salon_app'])->refresh(),
                 'token_type' => 'bearer',
                 'expires_in' => auth()->factory()->getTTL() * 60,
             ], 200);

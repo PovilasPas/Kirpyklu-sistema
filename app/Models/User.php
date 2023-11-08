@@ -56,6 +56,7 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [
+            'iss' => 'hair_salon_app',
             'role' => $this->status_id,
         ];
     }

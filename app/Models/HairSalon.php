@@ -27,6 +27,11 @@ class HairSalon extends Model
         return $this->hasMany(Hairdresser::class, 'hair_salon_id');
     }
 
+    public function approved_hairdressers()
+    {
+        return $this->hasMany(Hairdresser::class, 'hair_salon_id')->where('is_approved', 1);
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id');

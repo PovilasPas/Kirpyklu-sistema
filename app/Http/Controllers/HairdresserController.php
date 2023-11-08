@@ -17,7 +17,10 @@ class HairdresserController extends Controller
     public function index(City $city, HairSalon $salon)
     {
         if($city->id != $salon->city_id) return response(['message' => 'resource not found'], 404);
-        return response(HairdresserResource::collection($salon->hairdressers),200);
+        $user = auth()->user();
+        if($user && $user->status_id == 1 && $salon->manager_id == $user->id)
+            return response(HairdresserResource::collection($salon->hairdressers), 200);
+        return response(HairdresserResource::collection($salon->approved_hairdressers),200);
     }
 
     public function show(City $city, HairSalon $salon, Hairdresser $hairdresser)
@@ -53,12 +56,14 @@ class HairdresserController extends Controller
         {
             $data = $request->all();
             $newSalon = HairSalon::find($data['hair_salon_id']);
-            if($newSalon->manager_id != $payload['sub'] || $data['phone_nr'] != $hairdresser->phone_nr) throw new AccessDeniedHttpException('Unauthorized');
+            if($newSalon->manager_id != $payload['sub'] || $data['phone_nr'] != $hairdresser->phone_nr)
+                return response(['message' => 'Unauthorized']);
         }
         else if($payload['role'] == 2)
         {
             $data = $request->all();
-            if($data['hair_salon_id'] != $hairdresser->hair_salon_id || $data['is_approved'] != $hairdresser->is_approved) throw new AccessDeniedHttpException('Unauthorized');
+            if($data['hair_salon_id'] != $hairdresser->hair_salon_id || $data['is_approved'] != $hairdresser->is_approved)
+                return response(['message' => 'Unauthorized']);
         }
 
         $hairdresser->update($request->all());
