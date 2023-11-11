@@ -21,11 +21,11 @@ use App\Http\Controllers\HairdresserController;
 
 Route::prefix('V1')->group(function()
 {
-    Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth:api', 'can:view,user');
-    Route::post('/users/register', [UserController::class, 'store'])->middleware('valid.json');
     Route::post('/users/login', [UserController::class, 'authenticate'])->middleware('valid.json');
+    Route::post('/users/register', [UserController::class, 'store'])->middleware('valid.json');
     Route::post('/users/logout', [UserController::class, 'logout'])->middleware('auth:api');
     Route::post('/users/refresh', [UserController::class, 'refresh']);
+    Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth:api', 'can:view,user');
     Route::patch('/users/{user}', [UserController::class, 'update'])->middleware('auth:api', 'can:update,user', 'valid.json');
     Route::delete('/users/{user}', [UserController::class, 'delete'])->middleware('auth:api', 'can:delete,user');
 
