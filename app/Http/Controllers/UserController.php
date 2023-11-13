@@ -75,6 +75,7 @@ class UserController extends Controller
     public function delete(User $user)
     {
         $user->delete();
+        auth()->invalidate();
         return response('', 204);
     }
 }

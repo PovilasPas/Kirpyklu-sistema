@@ -27,9 +27,10 @@ class MainSeeder extends Seeder
             $count = rand(1,3);
             for($i = 0; $i < $count; $i++)
             {
-                HairSalon::factory(['city_id' => $ids[rand(0,count($ids) - 1)], 'manager_id' => $user->id])->
-                has(Hairdresser::factory()->count(rand(1,3))->
-                has(Hairstyle::factory()->count(rand(1,3))))->create();
+                $salon = HairSalon::factory(['city_id' => $ids[rand(0,count($ids) - 1)], 'manager_id' => $user->id])->create();
+                Hairdresser::factory(['hair_salon_id' => $salon->id])->count(rand(1,3))->create()->each(function($hairdresser) {
+                    if($hairdresser->is_approved) Hairstyle::factory(['hairdresser_id' => $hairdresser->id])->count(rand(1,3))->create();
+                });
             }
         });
     }

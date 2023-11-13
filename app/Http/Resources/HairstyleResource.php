@@ -18,7 +18,7 @@ class HairstyleResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
-            'image' => $this->image ? asset($this->image) : asset('storage/images/no-image.png'),
+            'image' => $this->image ? asset($this->image) : asset('storage/no-image.png'),
             'estimatedTimeMin' => $this->estimated_time_min,
             'hairdresserId' => $this->hairdresser_id,
         ];
