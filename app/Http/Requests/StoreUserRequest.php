@@ -27,8 +27,8 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:5', 'max:255', 'alpha'],
-            'surname' => ['required', 'string', 'min:5', 'max:255', 'alpha'],
+            'name' => ['required', 'string', 'min:3', 'max:255', 'alpha'],
+            'surname' => ['required', 'string', 'min:3', 'max:255', 'alpha'],
             'email' => ['required', 'string' ,'email', 'max:255', Rule::unique('users','email')],
             'password' => ['required', 'confirmed', 'string' , Password::min(8)->mixedCase()->numbers()->symbols()],
             'statusId' => ['bail', 'required', 'integer', 'gte:1', new ExistingStatus() ]
@@ -41,5 +41,12 @@ class StoreUserRequest extends FormRequest
             'password_confirmation' => $this->passwordConfirmation,
             'status_id' => $this->statusId,
         ]);
+    }
+
+    public function messages()
+    {
+        return [
+            'statusId.required' => 'The status field is required'
+        ];
     }
 }

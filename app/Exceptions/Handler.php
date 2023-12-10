@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -73,5 +74,15 @@ class Handler extends ExceptionHandler
                 ], 403);
             }
         });
+        $this->renderable(function(HttpException $e, $request)
+            {
+                if($request->is('api/*') && $e->getStatusCode() == 404)
+                {
+                    return response([
+                        'message' => $e->getMessage()
+                    ],404);
+                }
+            }
+        );
     }
 }

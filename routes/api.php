@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\HairSalonController;
 use App\Http\Controllers\HairstyleController;
 use App\Http\Controllers\HairdresserController;
@@ -32,6 +33,8 @@ Route::prefix('V1')->group(function()
     Route::get('/cities', [CityController::class, 'index']);
     Route::get('/cities/{city}', [CityController::class, 'show']);
 
+    Route::get('/statuses', [StatusController::class, 'index']);
+
     Route::prefix('/cities/{city}')->group(function ()
     {
         Route::get('/hair-salons', [HairSalonController::class, 'index']);
@@ -55,5 +58,9 @@ Route::prefix('V1')->group(function()
                 Route::delete('/hairstyles/{hairstyle}', [HairstyleController::class, 'delete'])->middleware('auth:api', 'can:delete,hairstyle');
             });
         });
+    });
+
+    Route::prefix('/managers/{manager}')->group(function (){
+        Route::get('/hair-salons', [HairSalonController::class, 'index'])->middleware('auth:api', 'can:viewAny,App\Models\HairSalon');
     });
 });

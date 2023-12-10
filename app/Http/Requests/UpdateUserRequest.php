@@ -27,8 +27,8 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['sometimes','required', 'string', 'min:5', 'max:255', 'alpha'],
-            'surname' => ['sometimes','required', 'string', 'min:5', 'max:255', 'alpha'],
+            'name' => ['sometimes','required', 'string', 'min:3', 'max:255', 'alpha'],
+            'surname' => ['sometimes','required', 'string', 'min:3', 'max:255', 'alpha'],
             'email' => ['sometimes','required', 'string' ,'email', 'max:255', Rule::unique('users','email')],
             'password' => ['sometimes','required', 'confirmed' ,'string' , Password::min(8)->mixedCase()->numbers()->symbols()],
         ];
@@ -36,11 +36,8 @@ class UpdateUserRequest extends FormRequest
 
     public function prepareForValidation()
     {
-        if($this->statusId)
-        {
-            $this->merge([
-                'status_id' => $this->statusId,
-            ]);
-        }
+        $this->merge([
+            'password_confirmation' => $this->passwordConfirmation,
+        ]);
     }
 }

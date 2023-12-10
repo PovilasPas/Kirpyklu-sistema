@@ -19,6 +19,7 @@ class HairdresserResource extends JsonResource
             'name' => $this->user->name,
             'surname' => $this->user->surname,
             'phoneNr' => $this->phone_nr,
+            'email' => $this->user->email,
             'isApproved' => $this->is_approved,
             'hairSalonId' => $this->hair_salon_id
         ];

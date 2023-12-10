@@ -33,9 +33,9 @@ class UserController extends Controller
         }
         return response([
             'message' => 'Successfully logged in',
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'accessToken' => $token,
+            'tokenType' => 'bearer',
+            'expiresIn' => auth()->factory()->getTTL() * 60
         ], 200);
     }
 
@@ -51,9 +51,9 @@ class UserController extends Controller
         {
             return response([
                 'message' => 'Token successfully refreshed',
-                'access_token' => auth()->claims(['iss' => 'hair_salon_app'])->refresh(),
-                'token_type' => 'bearer',
-                'expires_in' => auth()->factory()->getTTL() * 60,
+                'accessToken' => auth()->claims(['iss' => 'hair_salon_app'])->refresh(),
+                'tokenType' => 'bearer',
+                'expiresIn' => auth()->factory()->getTTL() * 60,
             ], 200);
         }
         catch(Exception $e)

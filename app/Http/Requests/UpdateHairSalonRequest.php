@@ -26,7 +26,7 @@ class UpdateHairSalonRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string' ,'min:5', 'max:255', 'regex:/^[\pL\d ]*$/u'],
+            'name' => ['required', 'string' ,'min:5', 'max:255', 'regex:/^[\pL\d\- ]*$/u'],
             'address' => ['required', 'string' ,'min:5', 'max:255', 'regex:/^[\pL\d\.\- ]*$/u'],
             'description' => ['required', 'string' ,'min:50', 'max:1000'],
             'cityId' => ['bail', 'required', 'integer', 'gte:1' , new ExistingCity()],

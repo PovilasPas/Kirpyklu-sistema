@@ -31,7 +31,7 @@ class StoreHairdresserRequest extends FormRequest
     public function messages()
     {
         return [
-            'phoneNr.regex' => 'Not a valid phone number format'
+            'phoneNr.regex' => 'Not a valid phone number format: allowed symbols are + and 0-9, must contain between 7 and 15 numbers'
         ];
     }
 
