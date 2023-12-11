@@ -1,9 +1,9 @@
 # Kirpyklų sistema
-## 1. Sprendžiamo uždavinio aprašymas
+## 1. Scodendžiamo uždavinio aprašymas
 ###   1.1. Sistemos paskirtis
 Pagrindinis projekto tikslas yra padėti kirpykloms surasti klientus, kurie norėtų pasinaudoti paslaugomis teikiamomis minėtose kirpyklose dirbančių kirpėjų.
 
-Kirpyklos vadovas, norėdamas naudotis sistema, turės užsiregistruoti. Tai padarius ir administratoriui patvirtinus kirpyklos vadovo registraciją, jis galės pridėti, šalinti kirpyklas, kurioms vadovauja, pateikti bei atnaujinti informaciją apie jas. Kirpėjai, taip pat galės užsiregistruoti. Užsiregistravęs kirpėjas galės nurodyti, kurioje kirpykloje dirba. Kirpyklos vadovui reikės patvirtinti, kad kirpėjas tikrai dirba jam priklausančioje kirpykloje. Atlikus tai, kirpėjas galės įkelti šukuosenų, kurias moka daryti, nuotraukas, nurodyti bei redaguoti šukuosenų kainas ir kitą informaciją. Jeigu kirpėjas nuspręs nebedaryti vienos iš anksčiau darytų šukuosenų, jis galės pašalinti informaciją apie nebedaromą šukuoseną. Potencialiam klientui bus galima filtruoti (pvz. pagal miestą) bei peržiūrėti sistemoje egzistuojančias kirpyklas, matyti visą informaciją apie pasirinktą kirpyklą bei joje dirbančius kirpėjus, peržiūrėti kirpykloje dirbančio kirpėjo daromas šukuosenas.
+Kirpyklos vadovas, norėdamas naudotis sistema, turės užsiregistruoti. Tai padarius ir administratoriui patvirtinus kirpyklos vadovo registraciją, jis galės pridėti, šalinti kirpyklas, kurioms vadovauja, pateikti bei atnaujinti informaciją apie jas. Kirpėjai, taip pat galės užsiregistruoti. Užsiregistravęs kirpėjas galės nurodyti, kurioje kirpykloje dirba. Kirpyklos vadovui reikės patvirtinti, kad kirpėjas tikrai dirba jam priklausančioje kirpykloje. Atlikus tai, kirpėjas galės įkelti šukuosenų, kurias moka daryti, nuotraukas, nurodyti bei redaguoti šukuosenų kainas ir kitą informaciją. Jeigu kirpėjas nuscodes nebedaryti vienos iš anksčiau darytų šukuosenų, jis galės pašalinti informaciją apie nebedaromą šukuoseną. Potencialiam klientui bus galima filtruoti (pvz. pagal miestą) bei peržiūrėti sistemoje egzistuojančias kirpyklas, matyti visą informaciją apie pasirinktą kirpyklą bei joje dirbančius kirpėjus, peržiūrėti kirpykloje dirbančio kirpėjo daromas šukuosenas.
 
 ###   1.2. Funkciniai reikalavimai
 Sistemos svečias galės:
@@ -209,8 +209,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-[
+<code>[
     {
         "id": 1,
         "name": "Hickletown"
@@ -223,8 +222,7 @@ Sistemos sudedamosios dalys:
         "id": 3,
         "name": "Cartertown"
     }
-]
-</pre>
+]</code>
         </td>
     </tr>
         <tr>
@@ -262,12 +260,10 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 1,
     "name": "Hickletown"
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -306,8 +302,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-[
+<code>[
     {
         "id": 1,
         "name": "Manager"
@@ -316,8 +311,7 @@ Sistemos sudedamosios dalys:
         "id": 2,
         "name": "Hairdresser"
     }
-]
-</pre>
+]</code>
         </td>
     </tr>
         <tr>
@@ -355,15 +349,13 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 12,
     "name": "Eiva",
     "surname": "Kavaliauskaitė",
     "email": "larson.angelica@example.com",
     "statusId": 2
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -400,25 +392,28 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "email": "larson.angelica@example.com",
     "password": "password"
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "message": "Successfully logged in",
-    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJoYWlyX<br>3NhbG9uX2FwcCIsImlhdCI6MTcwMjIzODE1OSwiZXhwIjoxNzAyMjQx<br>NzU5LCJuYmYiOjE3MDIyMzgxNTksImp0aSI6IlFtQTlKQnVmZUpiY05<br>5SnIiLCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5NDlm>NjAwYWRiM<br>zllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIjoyfQ.WhK-1QT49<br>Mm8mYiRPqWO1m1ITDxZsMYvd7_N289fgYc",
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz
+    I1NiJ9.eyJpc3MiOiJoYWlyX3NhbG9uX2FwcCIsImlhdCI
+    6MTcwMjIzODE1OSwiZXhwIjoxNzAyMjQxNzU5LCJuYmYiO
+    jE3MDIyMzgxNTksImp0aSI6IlFtQTlKQnVmZUpiY055SnI
+    iLCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5NDlm>NjAw
+    YWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIj
+    oyfQ.WhK1QT49Mm8mYiRPqWO1m1ITDxZsMYvd7_N289fgY
+    c",
     "tokenType": "bearer",
     "expiresIn": 3600
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -455,30 +450,26 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "name": "Petras",
     "surname": "Petraitis",
     "email": "Petras.Petraitis@yahoo.com",
     "password": "Petras_P1",
     "passwordConfirmation": "Petras_P1",
     "statusId": 2
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 30,
     "name": "Petras",
     "surname": "Petraitis",
     "email": "Petras.Petraitis@yahoo.com",
     "statusId": 2
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -518,11 +509,9 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "message": "Successfully logged out"
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -561,12 +550,19 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
+<code>{
     "message": "Token successfully refreshed",
-    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJoYWlyX<br>3NhbG9uX2FwcCIsImlhdCI6MTcwMjIzOTg0NCwiZXhwIjoxNzAyMjQz<br>NDU3LCJuYmYiOjE3MDIyMzk4NTcsImp0aSI6IlRzc1hSYTBZNHNZZEJ<br>zNWoiLCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMz<br>llNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIjoyfQ.SciBAmYb81<br>nS4N0jtrSt4MX_IJMx3ObzmDzWzjf2_X0",
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz
+    I1NiJ9.eyJpc3MiOiJoYWlyX3NhbG9uX2FwcCIsImlhdCI
+    6MTcwMjIzOTg0NCwiZXhwIjoxNzAyMjQzNDU3LCJuYmYiO
+    jE3MDIyMzk4NTcsImp0aSI6IlRzc1hSYTBZNHNZZEJzNWo
+    iLCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwY
+    WRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIjo
+    yfQ.SciBAmYb81nS4N0jtrSt4MX_IJMx3ObzmDzWzjf2_X
+    0",
     "tokenType": "bearer",
     "expiresIn": 3600
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -601,29 +597,25 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "name": "Eva",
     "surname": "Kava",
     "email": "Eva.Kava@gmail.com",
     "password": "Password_1",
     "passwordConfirmation": "Password_1"
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 12,
     "name": "Eva",
     "surname": "Kava",
     "email": "Eva.Kava@gmail.com",
     "statusId": 2
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -703,8 +695,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-[
+<code>[
     {
         "id": 2,
         "name": "Miller PLC",
@@ -723,8 +714,7 @@ Sistemos sudedamosios dalys:
         "description": "Accusamus occaecati nam excepturi. Aut eum libero sequi quibusdam non corporis hic. Sint laborum mollitia id non quos perspiciatis. Dolorem soluta aspernatur nesciunt in ut iusto tempora.",
         "managerId": 1
     }
-]
-</pre>
+]</code>
         </td>
     </tr>
         <tr>
@@ -763,8 +753,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 2,
     "name": "Miller PLC",
     "cityId": 1,
@@ -772,8 +761,7 @@ Sistemos sudedamosios dalys:
     "address": "469 Frank Locks Suite 908",
     "description": "Hic omnis sunt magnam ipsum. Aut iusto ad a ut in quam labore.",
     "managerId": 1
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -808,20 +796,17 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "name": "Povilo kirpykla",
     "address": "170 S Florida St",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae arcu ut dui sodales mollis. Morbi viverra tortor at elit pulvinar, fringilla venenatis lectus commodo. Nunc felis quam, tincidunt et erat id, semper hendrerit erat. Ut luctus libero a velit sagittis, et posuere nisl lobortis. Nullam ut maximus erat. Morbi et erat eget eros vulputate blandit eu et nibh. Nam a nisi purus. Morbi scelerisque imperdiet erat eu hendrerit. Proin molestie risus et diam blandit dapibus quis eget metus. Etiam id lorem vel est vulputate consectetur."
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 16,
     "name": "Povilo kirpykla",
     "cityId": 1,
@@ -829,8 +814,7 @@ Sistemos sudedamosios dalys:
     "address": "170 S Florida St",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae arcu ut dui sodales mollis. Morbi viverra tortor at elit pulvinar, fringilla venenatis lectus commodo. Nunc felis quam, tincidunt et erat id, semper hendrerit erat. Ut luctus libero a velit sagittis, et posuere nisl lobortis. Nullam ut maximus erat. Morbi et erat eget eros vulputate blandit eu et nibh. Nam a nisi purus. Morbi scelerisque imperdiet erat eu hendrerit. Proin molestie risus et diam blandit dapibus quis eget metus. Etiam id lorem vel est vulputate consectetur.",
     "managerId": 1
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -869,20 +853,17 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "name": "Kirpykla",
     "address": "1819 S El Camino Real",
     "description": "Morbi scelerisque imperdiet erat eu hendrerit. Proin molestie risus et diam blandit dapibus quis eget metus. Etiam id lorem vel est vulputate consectetur."
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 2,
     "name": "Kirpykla",
     "cityId": 1,
@@ -890,8 +871,7 @@ Sistemos sudedamosios dalys:
     "address": "1819 S El Camino Real",
     "description": "Morbi scelerisque imperdiet erat eu hendrerit. Proin molestie risus et diam blandit dapibus quis eget metus. Etiam id lorem vel est vulputate consectetur.",
     "managerId": 1
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -973,8 +953,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-[
+<code>[
     {
         "id": 11,
         "name": "Gelena",
@@ -993,8 +972,7 @@ Sistemos sudedamosios dalys:
         "isApproved": 1,
         "hairSalonId": 3
     }
-]
-</pre>
+]</code>
         </td>
     </tr>
         <tr>
@@ -1033,8 +1011,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 11,
     "name": "Gelena",
     "surname": "Jankauskienė",
@@ -1042,8 +1019,7 @@ Sistemos sudedamosios dalys:
     "email": "jarvis85@example.com",
     "isApproved": 1,
     "hairSalonId": 3
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -1079,18 +1055,15 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "phoneNr": "+37012345678"
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 26,
     "name": "Povilas",
     "surname": "Petraitis",
@@ -1098,8 +1071,7 @@ Sistemos sudedamosios dalys:
     "email": "povilas.petraitis@gmail.com",
     "isApproved": 0,
     "hairSalonId": 2
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -1139,20 +1111,17 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "phoneNr": "+37012345678",
     "isApproved": "1",
     "hairSalonId": "2"
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 26,
     "name": "Povilas",
     "surname": "Petraitis",
@@ -1160,8 +1129,7 @@ Sistemos sudedamosios dalys:
     "email": "povilas.petraitis@gmail.com",
     "isApproved": 1,
     "hairSalonId": 2
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -1243,8 +1211,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-[
+<code>[
     {
         "id": 2,
         "name": "Mullet",
@@ -1261,8 +1228,7 @@ Sistemos sudedamosios dalys:
         "estimatedTimeMin": 104,
         "hairdresserId": 8
     }
-]
-</pre>
+]</code>
         </td>
     </tr>
         <tr>
@@ -1301,16 +1267,14 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 2,
     "name": "Mullet",
     "price": 250.09,
     "image": "https://via.placeholder.com/640x480.png/004499?text=porro",
     "estimatedTimeMin": 95,
     "hairdresserId": 8
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -1345,29 +1309,25 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "name": "Hairstyle",
     "price": "22.51",
     "image": null,
     "estimatedTimeMin": 22
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 29,
     "name": "Hairstyle",
     "price": "22.51",
     "image": "http://localhost:8000/storage/no-image.png",
     "estimatedTimeMin": 22,
     "hairdresserId": 26
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -1406,29 +1366,25 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Užklausos struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "name": "Bowlcut",
     "price": "22.51",
     "image": null,
     "estimatedTimeMin": 30
-}
-</pre>
+}</code>
         </td>
     </tr>
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-{
+<code>{
     "id": 29,
     "name": "Bowlcut",
     "price": "22.51",
     "image": "http://localhost:8000/storage/no-image.png",
     "estimatedTimeMin": 30,
     "hairdresserId": 26
-}
-</pre>
+}</code>
         </td>
     </tr>
         <tr>
@@ -1510,8 +1466,7 @@ Sistemos sudedamosios dalys:
     <tr>
         <td>Atsakymo struktūra:</td>
         <td>
-<pre>
-[
+<code>[
     {
         "id": 1,
         "name": "Hills-Goyette",
@@ -1539,8 +1494,7 @@ Sistemos sudedamosios dalys:
         "description": "Accusamus occaecati nam excepturi. Aut eum libero sequi quibusdam non corporis hic. Sint laborum mollitia id non quos perspiciatis. Dolorem soluta aspernatur nesciunt in ut iusto tempora.",
         "managerId": 1
     }
-]
-</pre>
+]</code>
         </td>
     </tr>
         <tr>
