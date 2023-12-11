@@ -16,7 +16,7 @@ class HairdresserPolicy
         $salon = request()->route('salon');
         return $hairdresser->is_approved == 1 
         || $hairdresser->is_approved == 0 
-        && ($user && $user->status_id == 1 && $user->id== $salon->manager_id 
+        && ($user && $user->status_id == 1 && $user->id == $salon->manager_id 
         || $user && $user->status_id == 2 && $user->id == $hairdresser->id)
         ? Response::allow() : Response::deny('Unauthorized');
     }

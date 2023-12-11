@@ -28,8 +28,7 @@ class UpdateHairSalonRequest extends FormRequest
         return [
             'name' => ['required', 'string' ,'min:5', 'max:255', 'regex:/^[\pL\d\- ]*$/u'],
             'address' => ['required', 'string' ,'min:5', 'max:255', 'regex:/^[\pL\d\.\- ]*$/u'],
-            'description' => ['required', 'string' ,'min:50', 'max:1000'],
-            'cityId' => ['bail', 'required', 'integer', 'gte:1' , new ExistingCity()],
+            'description' => ['required', 'string' ,'min:50', 'max:1000']
         ];
     }
 
@@ -39,12 +38,5 @@ class UpdateHairSalonRequest extends FormRequest
             'name.regex' => 'Detected not allowed symbols in the name field',
             'address.regex' => 'Detected not allowed symbols in the address field'
         ];
-    }
-
-    public function prepareForValidation()
-    {
-        $this->merge([
-            'city_id' => $this->cityId
-        ]);
     }
 }
