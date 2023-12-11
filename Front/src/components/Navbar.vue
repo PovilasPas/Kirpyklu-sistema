@@ -10,7 +10,7 @@
             <v-btn icon="mdi-menu" @click.stop="handleDrawerClick"></v-btn>
         </v-toolbar-items>
         <v-toolbar-items v-if="token" class="hidden-sm-and-down">
-            <v-btn v-if="parseInt(claims.sub) === 1" prepend-icon="mdi-store" variant="text" class="text-capitalize" :to="{name: 'managerHairSalonList', params: {managerId: claims.sub}}" :active="false" size="large">Your salons</v-btn>
+            <v-btn v-if="parseInt(claims.role) === 1" prepend-icon="mdi-store" variant="text" class="text-capitalize" :to="{name: 'managerHairSalonList', params: {managerId: claims.sub}}" :active="false" size="large">Your salons</v-btn>
             <v-btn prepend-icon="mdi-account" variant="text" class="text-capitalize" :to="{name: 'user', params: {userId: claims.sub}}" :active="false" size="large">Your info</v-btn>
             <v-btn prepend-icon="mdi-logout" variant="text" class="text-capitalize" size="large" @click="handleLogoutClick" :loading="loggingOut" :disabled="loggingOut">Logout</v-btn>
         </v-toolbar-items>

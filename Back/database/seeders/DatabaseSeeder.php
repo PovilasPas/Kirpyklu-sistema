@@ -18,41 +18,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('statuses')->insert([
-            'name' => 'manager'
+            'name' => 'Manager'
         ]);
         DB::table('statuses')->insert([
-            'name' => 'hairdresser'
+            'name' => 'Hairdresser'
         ]);
         $this->call([
              MainSeeder::class
         ]);
-        // DB::table('users')->insert([
-        //     'name' => 'kirpėjas1',
-        //     'surname' => 'kirpėjas1',
-        //     'email' => 'KerpuPlaukus@gmail.com',
-        //     'password' => Hash::make('kirpėjas_1'),
-        //     'status_id' => 2,
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'kirpėjas2',
-        //     'surname' => 'kirpėjas2',
-        //     'email' => 'NekerpuPlaukus@gmail.com',
-        //     'password' => Hash::make('kirpėjas_2'),
-        //     'status_id' => 2,
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'vadovas1',
-        //     'surname' => 'vadovas1',
-        //     'email' => 'TuriuKirpykla@gmail.com',
-        //     'password' => Hash::make('vadovas_1'),
-        //     'status_id' => 1,
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'vadovas2',
-        //     'surname' => 'vadovas2',
-        //     'email' => 'Kirpyklos@gmail.com',
-        //     'password' => Hash::make('vadovas_2'),
-        //     'status_id' => 1,
-        // ]);
     }
 }
