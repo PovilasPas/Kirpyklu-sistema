@@ -90,8 +90,10 @@
                             <v-btn icon="mdi-information-outline" variant="flat" size="small" @click.stop="handleInfoModalOpen($event, index)"></v-btn>
                         </template>
                         <template v-slot:item.actions="{ index }">
-                            <v-btn icon="mdi-pencil-circle-outline" variant="flat" size="small" @click.stop="handleEditItemModalOpen(index)"></v-btn>
-                            <v-btn icon="mdi-close-circle-outline" class="text-red-darken-4" variant="flat" size="small" @click.stop="handleDeleteModalOpen(index)"></v-btn>
+                            <div class="d-flex justify-center">
+                                <v-btn icon="mdi-pencil-circle-outline" variant="flat" size="small" @click.stop="handleEditItemModalOpen(index)"></v-btn>
+                                <v-btn icon="mdi-close-circle-outline" class="text-red-darken-4" variant="flat" size="small" @click.stop="handleDeleteModalOpen(index)"></v-btn>
+                            </div>
                         </template>
                     </v-data-table-virtual>
                 </v-card>
@@ -248,7 +250,10 @@ export default {
                                     router.push( {name: 'login'} )
                                 })
                         }
-                        else console.log(err)
+                        else {
+                            itemDialog.submitting = false
+                            console.log(err)
+                        }
                     })
             }
             else
@@ -304,14 +309,17 @@ export default {
                                                     closeButton: CloseButton
                                                 })
                                             }
-                                            else console.log(err)
+                                            else console.log(err) 
                                         })
                                 }).catch(() => {
                                     context.emit('invalidate')
                                     router.push({ name: 'login' })
                                 })
                         }
-                        else console.log(err)
+                        else {
+                            itemDialog.submitting = false
+                            console.log(err)
+                        }
                     })
             }
         }
@@ -381,7 +389,10 @@ export default {
                                 router.push({ name: 'login' })
                             })
                     }
-                    else console.log(err)
+                    else {
+                        deleteDialog.submitting = false
+                        console.log(err)
+                    }
                 })
         }
 
@@ -395,7 +406,7 @@ export default {
         })
         const headers = computed(() => {
             const h = [
-                {title: 'Hairstyle', value: 'name'},
+                {title: 'Hairstyle', value: 'name', width: '80%'},
                 {title: 'Information', key: 'information', align: 'center', sortable: false}
             ]
             if(isOwner.value && hairdresser.value && hairdresser.value.isApproved)

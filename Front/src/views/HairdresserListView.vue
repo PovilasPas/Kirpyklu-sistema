@@ -227,7 +227,6 @@ export default {
                                                 })
                                             }
                                             else if(err.response?.status === 403) {
-                                                itemDialog.submitting = false
                                                 toast.error(err.response.data.message, {
                                                     position: POSITION.BOTTOM_CENTER,
                                                     timeout: 3000,
@@ -241,7 +240,10 @@ export default {
                                     router.push({name: 'login'})
                                 })
                         }
-                        else console.log(err)
+                        else {
+                            itemDialog.submitting = false
+                            console.log(err)
+                        }
                     })
             }
             else
@@ -296,7 +298,6 @@ export default {
                                             if(err.response?.status === 422)
                                                 itemDialog.inputErrors = err.response.data.errors
                                             else if(err.response?.status === 403) {
-                                                itemDialog.submitting = false
                                                 toast.error(err.response.data.message, {
                                                     position: POSITION.BOTTOM_CENTER,
                                                     timeout: 3000,
@@ -310,7 +311,10 @@ export default {
                                     router.push({name: 'login'})
                                 })
                         }
-                        else console.log(err.response)
+                        else {
+                            itemDialog.submitting = false
+                            console.log(err.response)
+                        }
                     })
             }
         }
@@ -343,7 +347,7 @@ export default {
                     })
                 }).catch((err) => {
                     if(err.response?.status === 403) {
-                        itemDialog.submitting = false
+                        deleteDialog.submitting = false
                         toast.error(err.response.data.message, {
                             position: POSITION.BOTTOM_CENTER,
                             timeout: 3000,
@@ -373,7 +377,10 @@ export default {
                                 router.push({name: 'login'})
                             })
                     }
-                    else console.log(err)
+                    else {
+                        deleteDialog.submitting = false
+                        console.log(err)
+                    }
                 })
         }
         const claims = computed(() => {
