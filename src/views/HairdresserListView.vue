@@ -399,7 +399,7 @@ export default {
                 {title: 'Hairdresser surname', value: 'surname'}
             ]
             if(isManager.value || hasEditableItem.value) {
-                h.push({title: 'Is approved', key: 'isApproved', align: ' d-none d-md-table-cell'})
+                h.push({title: 'Is approved', key: 'isApproved', align: ' d-none d-md-table-cell', sortable: false})
                 h.push({title: 'Actions', key: 'actions', align: 'center d-none d-md-table-cell', sortable: false})
             }
             return h
