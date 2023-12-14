@@ -3,7 +3,7 @@
 ###   1.1. Sistemos paskirtis
 Pagrindinis projekto tikslas yra padėti kirpykloms surasti klientus, kurie norėtų pasinaudoti paslaugomis teikiamomis minėtose kirpyklose dirbančių kirpėjų.
 
-Kirpyklos vadovas, norėdamas naudotis sistema, turės užsiregistruoti. Tai padarius ir administratoriui patvirtinus kirpyklos vadovo registraciją, jis galės pridėti, šalinti kirpyklas, kurioms vadovauja, pateikti bei atnaujinti informaciją apie jas. Kirpėjai, taip pat galės užsiregistruoti. Užsiregistravęs kirpėjas galės nurodyti, kurioje kirpykloje dirba. Kirpyklos vadovui reikės patvirtinti, kad kirpėjas tikrai dirba jam priklausančioje kirpykloje. Atlikus tai, kirpėjas galės įkelti šukuosenų, kurias moka daryti, nuotraukas, nurodyti bei redaguoti šukuosenų kainas ir kitą informaciją. Jeigu kirpėjas nuscodes nebedaryti vienos iš anksčiau darytų šukuosenų, jis galės pašalinti informaciją apie nebedaromą šukuoseną. Potencialiam klientui bus galima filtruoti (pvz. pagal miestą) bei peržiūrėti sistemoje egzistuojančias kirpyklas, matyti visą informaciją apie pasirinktą kirpyklą bei joje dirbančius kirpėjus, peržiūrėti kirpykloje dirbančio kirpėjo daromas šukuosenas.
+Kirpyklos vadovas, norėdamas naudotis sistema, turės užsiregistruoti. Tai padarius jis galės pridėti, šalinti kirpyklas, kurioms vadovauja, pateikti bei atnaujinti informaciją apie jas. Kirpėjai, taip pat galės užsiregistruoti. Užsiregistravęs kirpėjas galės nurodyti, kurioje kirpykloje dirba. Kirpyklos vadovui reikės patvirtinti, kad kirpėjas tikrai dirba jam priklausančioje kirpykloje. Atlikus tai, kirpėjas galės įkelti šukuosenų, kurias moka daryti, nuotraukas, nurodyti bei redaguoti šukuosenų kainas ir kitą informaciją. Jeigu kirpėjas nuspręs nebedaryti vienos iš anksčiau darytų šukuosenų, jis galės pašalinti informaciją apie nebedaromą šukuoseną. Potencialiam klientui bus galima filtruoti (pvz. pagal miestą) bei peržiūrėti sistemoje egzistuojančias kirpyklas, matyti visą informaciją apie pasirinktą kirpyklą bei joje dirbančius kirpėjus, peržiūrėti kirpykloje dirbančio kirpėjo daromas šukuosenas.
 
 ###   1.2. Funkciniai reikalavimai
 Sistemos svečias galės:
@@ -403,14 +403,15 @@ Sistemos sudedamosios dalys:
         <td>
 <code>{
     "message": "Successfully logged in",
-    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz
-    I1NiJ9.eyJpc3MiOiJoYWlyX3NhbG9uX2FwcCIsImlhdCI
-    6MTcwMjIzODE1OSwiZXhwIjoxNzAyMjQxNzU5LCJuYmYiO
-    jE3MDIyMzgxNTksImp0aSI6IlFtQTlKQnVmZUpiY055SnI
-    iLCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5NDlm>NjAw
-    YWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIj
-    oyfQ.WhK1QT49Mm8mYiRPqWO1m1ITDxZsMYvd7_N289fgY
-    c",
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhb
+    GciOiJIUzI1NiJ9.eyJpc3MiOiJoYWlyX3Nhb
+    G9uX2FwcCIsImlhdCI6MTcwMjIzODE1OSwiZX
+    hwIjoxNzAyMjQxNzU5LCJuYmYiOjE3MDIyMzg
+    xNTksImp0aSI6IlFtQTlKQnVmZUpiY055SnIi
+    LCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5N
+    Dlm>NjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1O
+    Tc2ZjciLCJyb2xlIjoyfQ.WhK1QT49Mm8mYiR
+    PqWO1m1ITDxZsMYvd7_N289fgYc",
     "tokenType": "bearer",
     "expiresIn": 3600
 }</code>
@@ -552,14 +553,15 @@ Sistemos sudedamosios dalys:
         <td>
 <code>{
     "message": "Token successfully refreshed",
-    "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUz
-    I1NiJ9.eyJpc3MiOiJoYWlyX3NhbG9uX2FwcCIsImlhdCI
-    6MTcwMjIzOTg0NCwiZXhwIjoxNzAyMjQzNDU3LCJuYmYiO
-    jE3MDIyMzk4NTcsImp0aSI6IlRzc1hSYTBZNHNZZEJzNWo
-    iLCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwY
-    WRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJyb2xlIjo
-    yfQ.SciBAmYb81nS4N0jtrSt4MX_IJMx3ObzmDzWzjf2_X
-    0",
+    "accessToken": "eyJ0eXAiOiJKV1QiLCJhb
+    GciOiJIUzI1NiJ9.eyJpc3MiOiJoYWlyX3Nhb
+    G9uX2FwcCIsImlhdCI6MTcwMjIzOTg0NCwiZX
+    hwIjoxNzAyMjQzNDU3LCJuYmYiOjE3MDIyMzk
+    4NTcsImp0aSI6IlRzc1hSYTBZNHNZZEJzNWoi
+    LCJzdWIiOiIxMiIsInBydiI6IjIzYmQ1Yzg5N
+    DlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OT
+    c2ZjciLCJyb2xlIjoyfQ.SciBAmYb81nS4N0j
+    trSt4MX_IJMx3ObzmDzWzjf2_X0",
     "tokenType": "bearer",
     "expiresIn": 3600
 }</code>
