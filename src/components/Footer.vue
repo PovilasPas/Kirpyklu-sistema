@@ -1,5 +1,5 @@
 <template>
-    <v-footer color="blue-grey-darken-3" elevation="16" app>
+    <v-footer color="blue-grey-darken-3" elevation="16" order="-1" app>
         <v-row>
             <v-col class="text-center">
                 Povilas Paškevičius - {{new Date().getFullYear() }}
