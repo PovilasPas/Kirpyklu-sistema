@@ -1,5 +1,5 @@
 # Kirpyklų sistema
-## 1. Scodendžiamo uždavinio aprašymas
+## 1. Sprendžiamo uždavinio aprašymas
 ###   1.1. Sistemos paskirtis
 Pagrindinis projekto tikslas yra padėti kirpykloms surasti klientus, kurie norėtų pasinaudoti paslaugomis teikiamomis minėtose kirpyklose dirbančių kirpėjų.
 
